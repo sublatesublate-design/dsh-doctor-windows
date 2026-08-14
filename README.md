@@ -47,7 +47,7 @@ dsh plugin --profile web remove dsh-doctor-windows
 Git dependencies run the package's `prepare` script. With pnpm 10 or newer, allow the exact package key in the profile's `pnpm-workspace.yaml`, then install a pinned commit:
 
 ```powershell
-dsh plugin --profile web add github:sublatesublate-design/dsh-doctor-windows#COMMIT_SHA
+dsh plugin --profile web add github:sublatesublate-design/dsh-doctor-windows#v0.1.0
 ```
 
 Only allow build scripts from source you trust.

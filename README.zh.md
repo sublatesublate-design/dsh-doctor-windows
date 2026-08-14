@@ -47,7 +47,7 @@ dsh plugin --profile web remove dsh-doctor-windows
 Git 依赖会运行本包的 `prepare` 脚本。pnpm 10 及以上版本需要先在 profile 的 `pnpm-workspace.yaml` 中允许准确的包名，然后安装固定 commit：
 
 ```powershell
-dsh plugin --profile web add github:sublatesublate-design/dsh-doctor-windows#COMMIT_SHA
+dsh plugin --profile web add github:sublatesublate-design/dsh-doctor-windows#v0.1.0
 ```
 
 只应允许运行来源可信的构建脚本。
