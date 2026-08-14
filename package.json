@@ -1,0 +1,97 @@
+{
+  "name": "dsh-doctor-windows",
+  "version": "0.1.0",
+  "description": "Windows environment diagnostics for DeepSeek Harness",
+  "author": "sublatesublate-design",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sublatesublate-design/dsh-doctor-windows.git"
+  },
+  "homepage": "https://github.com/sublatesublate-design/dsh-doctor-windows#readme",
+  "bugs": {
+    "url": "https://github.com/sublatesublate-design/dsh-doctor-windows/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh-plugin",
+    "windows",
+    "diagnostics"
+  ],
+  "license": "MIT",
+  "packageManager": "pnpm@10.30.1",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib/index.js",
+    "lib/index.d.ts",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "smoke": "tsx scripts/smoke.ts",
+    "check": "pnpm run typecheck && pnpm run test && pnpm run build",
+    "prepare": "pnpm run build"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1",
+    "semver": "^7.7.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-commands": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-subprocess": "^0.1.0-rc.6"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-commands": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-subprocess": {
+      "optional": true
+    }
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@deepseek-ai/dsh-subprocess-local",
+      "esbuild",
+      "node-pty",
+      "koffi"
+    ]
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-commands": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-host-directory-picker-native": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-subprocess": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-subprocess-local": "^0.1.0-rc.6",
+    "@types/node": "^24.10.1",
+    "@types/semver": "^7.7.1",
+    "tsdown": "^0.22.14",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  }
+}
